@@ -48,12 +48,14 @@ install:
       conda install -y conda-build
       conda config --remove channels defaults
       conda config --add channels defaults
+      conda config --add channels karthikm 
       conda config --add channels conda-forge
       conda config --set show_channel_urls true
+      conda config --set anaconda_upload yes
       #conda install --yes --quiet conda-forge-ci-setup=1
       #source run_conda_forge_build_setup
 
 script:
   - conda build ./recipe -m ./.ci_support/${CONFIG}.yaml
-  - curl --ftp-create-dirs -T  /opt/conda/conda-bld/linux-ppc64le/${1}*.tar.bz2 -u $FTP_USERNAME:$FTP_PASSWORD  ftp://ausgsa.ibm.com/gsa/ausgsa/home/k/a/ka269131/web/private
+  #- curl --ftp-create-dirs -T  /opt/conda/conda-bld/linux-ppc64le/${1}*.tar.bz2 -u $FTP_USERNAME:$FTP_PASSWORD  ftp://ausgsa.ibm.com/gsa/ausgsa/home/k/a/ka269131/web/private
   #- upload_or_check_non_existence ./recipe conda-forge --channel=main -m ./.ci_support/${CONFIG}.yaml
