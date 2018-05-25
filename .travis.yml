@@ -45,6 +45,7 @@ install:
       echo ""
       echo "Configuring conda."
       source /opt/conda/bin/activate root
+      conda install -y conda-build
       conda config --remove channels defaults
       conda config --add channels defaults
       conda config --add channels conda-forge
