@@ -58,6 +58,7 @@ install:
 
 script:
   - conda build ./recipe -m ./.ci_support/${CONFIG}.yaml
+  - echo "Anaconda"
   - echo $USER  $PASSWORD
   - anaconda -v login --username $USER --password $PASSWORD
   - anaconda upload /opt/conda/conda-bld/linux-ppc64le/*.tar.bz2
