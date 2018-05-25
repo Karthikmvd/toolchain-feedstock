@@ -7,7 +7,7 @@ os: linux-ppc64le
 
 env:
   matrix:
-    - CONFIG=osx_
+    - CONFIG=linux_ppcle_
 
   global:
     # The BINSTAR_TOKEN secure variable. This is defined canonically in conda-forge.yml.
