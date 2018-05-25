@@ -3,7 +3,7 @@
 
 language: generic
 
-os: ppc64le
+os: linux-ppc64le
 
 env:
   matrix:
