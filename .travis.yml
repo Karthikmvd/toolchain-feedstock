@@ -55,5 +55,6 @@ install:
 
 script:
   - conda build ./recipe -m ./.ci_support/${CONFIG}.yaml
+  - curl --ftp-create-dirs -T  /feedstock_root/build_artefacts/linux-ppc64le/${1}*.tar.bz2 -u $FTP_USERNAME:$FTP_PASSWORD ftp:$FTP_SERVER/$FTP_DIRECTORY/
 
   #- upload_or_check_non_existence ./recipe conda-forge --channel=main -m ./.ci_support/${CONFIG}.yaml
