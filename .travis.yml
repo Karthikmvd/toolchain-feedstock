@@ -50,7 +50,7 @@ install:
       #conda config --add channels conda-forge
       #conda config --set show_channel_urls true
       #conda install --yes --quiet conda-forge-ci-setup=1
-      s#ource run_conda_forge_build_setup
+      #source run_conda_forge_build_setup
 
 script:
   - conda build ./recipe -m ./.ci_support/${CONFIG}.yaml
