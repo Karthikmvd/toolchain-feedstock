@@ -3,8 +3,7 @@
 
 language: generic
 
-os: osx
-osx_image: xcode6.4
+os: ppc64le
 
 env:
   matrix:
@@ -37,7 +36,7 @@ install:
       echo ""
       echo "Installing a fresh version of Miniconda."
       MINICONDA_URL="https://repo.continuum.io/miniconda"
-      MINICONDA_FILE="Miniconda3-latest-MacOSX-x86_64.sh"
+      MINICONDA_FILE="Miniconda3-latest-linux-ppc64le.sh"
       curl -L -O "${MINICONDA_URL}/${MINICONDA_FILE}"
       bash $MINICONDA_FILE -b
 
@@ -45,13 +44,13 @@ install:
     - |
       echo ""
       echo "Configuring conda."
-      source /Users/travis/miniconda3/bin/activate root
-      conda config --remove channels defaults
-      conda config --add channels defaults
-      conda config --add channels conda-forge
-      conda config --set show_channel_urls true
-      conda install --yes --quiet conda-forge-ci-setup=1
-      source run_conda_forge_build_setup
+      #source /Users/travis/miniconda3/bin/activate root
+      #conda config --remove channels defaults
+      #conda config --add channels defaults
+      #conda config --add channels conda-forge
+      #conda config --set show_channel_urls true
+      #conda install --yes --quiet conda-forge-ci-setup=1
+      s#ource run_conda_forge_build_setup
 
 script:
   - conda build ./recipe -m ./.ci_support/${CONFIG}.yaml
