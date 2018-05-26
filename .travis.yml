@@ -15,7 +15,7 @@ env:
 
 
 before_install:
-    # Fast finish the PR.
+    # Fast finish the PR..
     - sudo apt-get -qq update
     - sudo apt-get install  lftp
     - |
