@@ -58,7 +58,7 @@ install:
       #source run_conda_forge_build_setup
       #anaconda -v login --username $USER --password $PASSWORD
 
-script:linux-ppc64le
+script:
   - conda build ./recipe -m ./.ci_support/${CONFIG}.yaml
   - lftp -c "open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER; set ssl-allow yes; set passive-mode yes; set ssl:verify-certificate no; put -O $FTP_DIRECTORY/linux-ppc64le /opt/conda/conda-bld/linux-ppc64le/toolchain-2.1.3-0.tar.bz2 ; chmod 777 $FTP_DIRECTORY/linux-ppc64le/toolchain-2.1.3-0.tar.bz2 ; "
   #- upload_or_check_non_existence ./recipe conda-forge --channel=main -m ./.ci_support/${CONFIG}.yaml
